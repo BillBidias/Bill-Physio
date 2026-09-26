@@ -19,9 +19,9 @@
   data, sitemap and robots. The unfinished video page honestly states availability in
   German, has return/contact links, no fake signup/social links, and noindex.
 - Added package-lock.json, npm ci, regression tests and browser/accessibility checks.
-  Builds fail on errors. Production is restricted to main/IONOS; duplicate Netlify
+  Builds fail on errors. The IONOS workflow is restricted to main; duplicate Netlify
   workflow replaced by quality checks. Fixed IONOS workflow input/path typos and missing
-  deployment configuration. Added a restrictive CSP and defensive response headers.
+  deployment configuration. Added a restrictive CSP and defensive response headers for Apache and Vercel.
 - Removed possible credentials from dev.md without repeating them in this report.
 
 ## Verification
@@ -45,8 +45,8 @@ checks do not establish full accessibility or legal compliance.
 3. Confirm the precise hosting contract/entity, processing agreement, actual log
    retention and email handling. The privacy page describes the technical implementation
    and general retention criteria; it is not a certified legal review.
-4. Confirm IONOS secrets/project connection and actual domain deployment. Dashboard
-   access is needed to retire old Netlify/Kinsta deployments or automatic integrations.
+4. Confirm IONOS secrets/project connection and actual domain deployment. Two Vercel integrations (bill-physio and bill-physio-87f3) also build this repository. Dashboard
+   access is needed to consolidate Netlify/Kinsta/Vercel deployments and integrations.
 5. Protect main with required check `verify`, block force-push/deletion and require pull
    requests. Repository settings are external to these workflow files.
 

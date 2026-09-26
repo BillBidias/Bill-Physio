@@ -18,7 +18,8 @@ for (const route of ['/', '/videos.html', '/datenschutz.html']) {
       expect(await image.evaluate(el => el.naturalWidth)).toBeGreaterThan(0);
     }
     await page.evaluate(() => window.scrollTo(0, 0));
-    await page.screenshot({ path: testInfo.outputPath('page.png'), fullPage: true });
+    // Local review artifact; headless Linux screenshot capture is not a site assertion.
+    if (!process.env.CI) await page.screenshot({ path: testInfo.outputPath('page.png'), fullPage: true });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
     const audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
     expect(audit.violations).toEqual([]);

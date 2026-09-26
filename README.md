@@ -1,7 +1,8 @@
 # Bill-Physio
 
 Static German-language website for the physiotherapy practice in Bad Kreuznach.
-Production URL: https://bill-physio.de/ (IONOS Deploy Now).
+Canonical public URL: https://bill-physio.de/.
+The repository also has two existing Vercel integrations (bill-physio and bill-physio-87f3).
 
 ## Development
 
@@ -32,13 +33,16 @@ accessibility, navigation, contact links, video playback and no-JavaScript acces
 `Site checks / verify` runs for pull requests and main. IONOS production deployment
 runs only from main and repeats tests before uploading. The legacy Netlify deployment
 has been removed to avoid two competing production pipelines. Existing external
-Netlify/Kinsta sites and dashboard integrations cannot be disabled by changing this
+Netlify/Kinsta/Vercel sites and dashboard integrations cannot be disabled by changing this
 repository; see AUDIT-CORRECTIONS.md.
 
 IONOS requires the existing IONOS_API_KEY, IONOS_SSH_KEY and deployment-specific SSH
 username secrets, and the project must be connected to this repository. No credentials
 belong in committed files. The static deployment configuration is in
 `.deploy-now/bill/config.yaml`.
+
+Vercel builds use vercel.json (npm ci, tests, build, dist output and security headers).
+Git integrations configured in hosting dashboards are separate from GitHub workflows.
 
 ## Privacy and contact
 
