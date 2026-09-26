@@ -35,7 +35,7 @@ $(document).ready(function () {
 // Start Cookies Banner
 var cookiesBannerModal = new bootstrap.Modal(document.getElementById('cookiesBannerModal'));
 const key = 'Bill_Cookies_' + new Date().getMonth() + new Date().getFullYear();
-if (!localStorage.getItem(key)) {
+if (localStorage.getItem(key) !== 'true') {
     cookiesBannerModal.show();
 
     $('#emailSuccessToast').toast({
